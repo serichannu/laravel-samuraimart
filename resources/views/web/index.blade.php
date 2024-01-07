@@ -12,9 +12,9 @@
             @foreach ($recommend_products as $recommend_product)
                 <div class="col-4">
                     <a href="{{ route('products.show', $recommend_product) }}">
-                        @if ($recommend_product->imag !== "")
+                        @if ($recommend_product->image !== "")
                             <img src="{{ asset($recommend_product->image) }}" class="img-thumbnail">
-                        @else
+                            @else
                             <img src="{{ asset('img/dummy.png') }}" class="img-thumbnail">
                         @endif
                     </a>
@@ -22,6 +22,8 @@
                         <div class="col-12">
                             <p class="samuraimart-product-label mt-2">
                                 {{ $recommend_product->name }}<br>
+                                <span class="samurai-star-rating" data-rate="{{ round($recommend_product->reviews->avg('score') * 2) / 2 }}"></span>
+                                <span class="average-rating">{{ number_format($recommend_product->reviews->avg('score'), 1) }}</span><br>
                                 <label>￥{{ $recommend_product->price }}</label>
                             </p>
                         </div>
@@ -47,6 +49,8 @@
                         <div class="col-12">
                             <p class="samuraimart-product-label mt-2">
                                 {{ $recently_product->name }}<br>
+                                <span class="samurai-star-rating" data-rate="{{ round($recently_product->reviews->avg('score') * 2) / 2 }}"></span>
+                                <span class="average-rating">{{ number_format($recently_product->reviews->avg('score'), 1) }}</span><br>
                                 <label>￥{{ $recently_product->price }}</label>
                             </p>
                         </div>

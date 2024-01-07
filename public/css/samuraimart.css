@@ -183,3 +183,67 @@ th,
 td {
     background-color: #f8fafc !important;
 }
+
+.samurai-star-rating {
+    font-size: 20px;
+    color: #b2b2b2;
+    position: relative;
+    width: 100px;
+    height: 20px;
+    display: inline-block;
+}
+
+.samurai-star-rating::before,
+.samurai-star-rating::after {
+    content: "★★★★★";
+    position: absolute;
+}
+.samurai-star-rating::before {
+    color: #b2b2b2;
+}
+
+.samurai-star-rating::after {
+    color: #0fbe9f;
+    overflow: hidden;
+    width: 100px;
+}
+
+.samurai-star-rating[data-rate="5"]::after {
+    width: 100px;
+}
+.samurai-star-rating[data-rate="4.5"]::after {
+    width: 90px;
+}
+.samurai-star-rating[data-rate="4"]::after {
+    width: 80px;
+}
+.samurai-star-rating[data-rate="3.5"]::after {
+    width: 70px;
+}
+.samurai-star-rating[data-rate="3"]::after {
+    width: 60px;
+}
+.samurai-star-rating[data-rate="2.5"]::after {
+    width: 50px;
+}
+.samurai-star-rating[data-rate="2"]::after {
+    width: 40px;
+}
+.samurai-star-rating[data-rate="1.5"]::after {
+    width: 30px;
+}
+.samurai-star-rating[data-rate="1"]::after {
+    width: 20px;
+}
+.samurai-star-rating[data-rate="0.5"]::after {
+    width: 10px;
+}
+.samurai-star-rating[data-rate="0"]::after {
+    width: 0px;
+}
+
+.average-rating {
+    font-weight: bold;
+    margin-bottom: 5px;
+    margin: 0;
+}

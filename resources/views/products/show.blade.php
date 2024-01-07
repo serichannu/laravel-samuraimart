@@ -75,7 +75,9 @@
         <div class="offset-1 col-11">
             <hr class="w-100">
             <h3 class="float-left">カスタマーレビュー</h3>
-        </div>
+            <span class="samurai-star-rating" data-rate="{{ round($product->reviews->avg('score') * 2) / 2 }}"></span>
+            <span class="average-rating">{{ number_format($product->reviews->avg('score'), 1) }}</span><br>
+</div>
 
         <div class="offset-1 col-10">
             {{-- レビューを実装する箇所 --}}

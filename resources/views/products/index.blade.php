@@ -37,7 +37,9 @@
                             <div class="col-12">
                                 <p class="samuraimart-product-label mt-2">
                                     {{ $product->name }}<br>
-                                    <label>￥{{ $product->price }}</label>
+                                    <span class="samurai-star-rating" data-rate="{{ round($product->reviews->avg('score') * 2) / 2 }}"></span>
+                                    <span class="average-rating">{{ number_format($product->reviews->avg('score'), 1) }}</span><br>
+                                        <label>￥{{ $product->price }}</label>
                                 </p>
                             </div>
                         </div>
