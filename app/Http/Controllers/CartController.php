@@ -59,7 +59,7 @@ class CartController extends Controller
                 'carriage' => $request->carriage,
             ]
         ]);
-        return to_route('products.show', $request->get('id'));
+        return to_route('carts.index');
     }
 
 }
