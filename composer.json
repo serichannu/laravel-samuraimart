@@ -21,6 +21,7 @@
         "stripe/stripe-php": "^13.8"
     },
     "require-dev": {
+        "barryvdh/laravel-ide-helper": "^2.13",
         "fakerphp/faker": "^1.9.1",
         "laravel/breeze": "*",
         "laravel/pint": "^1.0",
