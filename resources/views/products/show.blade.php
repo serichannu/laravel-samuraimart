@@ -16,6 +16,11 @@
                 <h1 class="">
                     {{ $product->name }}
                 </h1>
+                @if ($product->reviews->isNotEmpty())
+                    <span class="samurai-star-rating" data-rate="{{ round($product->reviews->avg('score') * 2) / 2 }}"></span>
+                    <span class="average-rating">{{ number_format($product->reviews->avg('score'), 1) }}</span><br>
+                @endif
+
                 <p class="">
                     {{ $product->description }}
                 </p>
@@ -75,8 +80,10 @@
         <div class="offset-1 col-11">
             <hr class="w-100">
             <h3 class="float-left">カスタマーレビュー</h3>
-            <span class="samurai-star-rating" data-rate="{{ round($product->reviews->avg('score') * 2) / 2 }}"></span>
-            <span class="average-rating">{{ number_format($product->reviews->avg('score'), 1) }}</span><br>
+            @if ($product->reviews->isNotEmpty())
+                <span class="samurai-star-rating" data-rate="{{ round($product->reviews->avg('score') * 2) / 2 }}"></span>
+                <span class="average-rating">{{ number_format($product->reviews->avg('score'), 1) }}</span><br>
+            @endif
 </div>
 
         <div class="offset-1 col-10">

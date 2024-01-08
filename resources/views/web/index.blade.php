@@ -22,8 +22,10 @@
                         <div class="col-12">
                             <p class="samuraimart-product-label mt-2">
                                 {{ $recommend_product->name }}<br>
-                                <span class="samurai-star-rating" data-rate="{{ round($recommend_product->reviews->avg('score') * 2) / 2 }}"></span>
-                                <span class="average-rating">{{ number_format($recommend_product->reviews->avg('score'), 1) }}</span><br>
+                                @if ($recommend_product->reviews->isNotEmpty())
+                                    <span class="samurai-star-rating" data-rate="{{ round($recommend_product->reviews->avg('score') * 2) / 2 }}"></span>
+                                    <span class="average-rating">{{ number_format($recommend_product->reviews->avg('score'), 1) }}</span><br>
+                                @endif
                                 <label>￥{{ $recommend_product->price }}</label>
                             </p>
                         </div>
@@ -49,9 +51,11 @@
                         <div class="col-12">
                             <p class="samuraimart-product-label mt-2">
                                 {{ $recently_product->name }}<br>
-                                <span class="samurai-star-rating" data-rate="{{ round($recently_product->reviews->avg('score') * 2) / 2 }}"></span>
-                                <span class="average-rating">{{ number_format($recently_product->reviews->avg('score'), 1) }}</span><br>
-                                <label>￥{{ $recently_product->price }}</label>
+                                @if ($recently_product->reviews->isNotEmpty())
+                                    <span class="samurai-star-rating" data-rate="{{ round($recently_product->reviews->avg('score') * 2) / 2 }}"></span>
+                                    <span class="average-rating">{{ number_format($recently_product->reviews->avg('score'), 1) }}</span><br>
+                                @endif
+                                    <label>￥{{ $recently_product->price }}</label>
                             </p>
                         </div>
                     </div>
